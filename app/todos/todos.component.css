@@ -1,0 +1,8 @@
+StackLayout.main-container {
+    margin: 15;
+}
+Label.icon {
+    vertical-align: center;
+    font-size: 25;
+    horizontal-align: right;
+}
