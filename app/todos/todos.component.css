@@ -1,8 +1,42 @@
 StackLayout.main-container {
     margin: 15;
 }
-Label.icon {
-    vertical-align: center;
+
+GridLayout {
+    margin-top: 10;
+}
+
+Label.fa {
     font-size: 25;
     horizontal-align: right;
+}
+
+Label.fa,
+Label.todo-description {
+    vertical-align: center;
+}
+
+Label.todo-description {
+    font-size: 25;
+}
+
+StackLayout.filters {
+    horizontal-align: center;
+    margin-top: 8;
+}
+
+Label.filter {
+    margin: 5;
+}
+
+Switch {
+    margin-right: 5;
+}
+
+Label.selected-filter {
+    color: lightsalmon;
+}
+
+Label.done-todo {
+    text-decoration: line-through;
 }

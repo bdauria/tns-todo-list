@@ -1,6 +1,19 @@
 <StackLayout class="main-container">
-    <GridLayout columns="4*, *" rows="auto">
-        <TextField hint="What needs to be done?" col="0" ></TextField>
-        <Label class="fa icon" [text]="'fa-plus-circle' | fonticon" col="1"></Label>
-    </GridLayout>
+  <GridLayout columns="*, auto" rows="auto">
+    <TextField #todoInput hint="What needs to be done?" col="0"></TextField>
+    <Label class="fa" [text]="'fa-plus-circle' | fonticon" col="1" (tap)="addTodo()"></Label>
+  </GridLayout>
+  <GridLayout *ngFor="let todo of displayedTodos; let i = index" columns="auto, *, auto" rows="auto">
+    <Switch col="0" [(ngModel)]="todo.done"></Switch>
+    <Label col="1" class="todo-description" [text]="todo.description" [class.done-todo]="todo.done"></Label>
+    <Label class="fa" [text]="'fa-trash' | fonticon" col="2" (tap)="deleteTodo(i)"></Label>
+  </GridLayout>
+  <StackLayout class="filters" orientation="horizontal">
+    <Label 
+      (tap)="selectFilter(i)"
+      [text]="filter.description"
+      [class.selected-filter]="selectedFilterIndex === i"
+      *ngFor="let filter of todoFilters; let i = index" 
+      class="filter"></Label>
+  </StackLayout>
 </StackLayout>
